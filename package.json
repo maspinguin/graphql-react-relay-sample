@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:hot": "webpack-dev-server --hot --port 7777",
-    "build":"rm -Rf dist && webpack -p"
+    "build":"rm -Rf dist && webpack -p",
+    "build:relay": "relay-compiler --src ./src/ --schema ./schema/schema.graphql"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,9 @@
     "html-webpack-plugin": "3.2.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
+    "react-relay": "^6.0.0",
+    "relay-runtime": "^6.0.0",
+    "relay-compiler": "^6.0.0",
     "webpack": "4.29.5",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10"
