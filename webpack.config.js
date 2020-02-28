@@ -1,5 +1,6 @@
 const path = require('path');
 const childProcess = require('child_process');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const packageVersion = require('./package.json').version;
 let mode = 'development';
 
@@ -21,6 +22,11 @@ module.exports = [{
         publicPath: '/',
         filename: `[name]-${commithash}.js`
     },
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: 'template/index.html',
+        })
+    ],
     module: {
         rules: [
             {

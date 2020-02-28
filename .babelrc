@@ -1,13 +1,5 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "targets": {
-        "browsers": [
-          "Explorer 11",
-          "last 2 versions"
-        ]
-      }
-    }],
     "@babel/preset-react"
   ],
   "plugins": [
