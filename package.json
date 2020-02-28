@@ -37,6 +37,8 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-relay": "^6.0.0",
+    "react-router": "5.0.0",
+    "react-router-dom": "5.0.0",
     "relay-runtime": "^6.0.0",
     "relay-compiler": "^6.0.0",
     "webpack": "4.29.5",
