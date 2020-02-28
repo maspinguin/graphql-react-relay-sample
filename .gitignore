@@ -1,0 +1,15 @@
+node_modules
+.idea
+dist/
+docs/
+__generated__
+package-lock.json
+yarn.lock
+yarn-error.log
+schema.graphql
+schema.json
+coverage/
+.webpack
+.serverless
+.vscode
+flow-coverage/
