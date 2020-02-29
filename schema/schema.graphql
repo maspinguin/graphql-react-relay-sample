@@ -1,0 +1,593 @@
+type Auth implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idUser: Int
+  idPasar: Int
+  uuidPasar: String
+  role: String
+  fullname: String
+  token: String
+  email: String
+  username: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type AuthConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [AuthEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type AuthEdge {
+  """The item at the end of the edge"""
+  node: Auth
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Blok implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idBlok: Int
+  idPasar: Int
+  uuidPasar: String
+  namaBlok: String
+  Pasar: Pasar
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type BlokConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [BlokEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type BlokEdge {
+  """The item at the end of the edge"""
+  node: Blok
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type JenisStand implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idJenisStand: Int
+  keterangan: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type JenisStandConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [JenisStandEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type JenisStandEdge {
+  """The item at the end of the edge"""
+  node: JenisStand
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type KelasPasar implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idKelasPasar: Int
+  namaKelasPasar: String
+  keterangan: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type KelasPasarConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [KelasPasarEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type KelasPasarEdge {
+  """The item at the end of the edge"""
+  node: KelasPasar
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+input LoginMutationInput {
+  username: String!
+  password: String!
+  clientMutationId: String
+}
+
+type LoginMutationPayload {
+  data: Auth
+  clientMutationId: String
+}
+
+type Mutation {
+  """Login with firebase auth"""
+  LoginMutation(input: LoginMutationInput!): LoginMutationPayload
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Pasar implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idPasar: Int
+  idKelasPasar: Int
+  uuidKelasPasar: String
+  kelasPasarDetail: KelasPasar
+  idTipePasar: Int
+  uuidTipePasar: String
+  namaPasar: String
+  alamatPasar: String
+  luasLahan: Float
+  luasBangunan: Float
+  pengelola: String
+  jenisPasar: String
+  tahunBerdiri: String
+  tahunRenovasi: String
+  kondisi: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type PasarConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PasarEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type PasarEdge {
+  """The item at the end of the edge"""
+  node: Pasar
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Pedagang implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idPedagang: Int
+  idPasar: Int
+  uuidPasar: String
+  namaPedagang: String
+  alamatPedagang: String
+  tanggalLahir: String
+  tempatLahir: String
+  jenisDagangan: String
+  nomor: String
+  keterangan: String
+  noTelepon: String
+  nik: String
+  statusId: Int
+  Pasar: Pasar
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type PedagangConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PedagangEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type PedagangEdge {
+  """The item at the end of the edge"""
+  node: Pedagang
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type PedagangPenetapan implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idPedagang: Int
+  idPenetapan: Int
+  idStandPasar: Int
+  uuidPedagang: String
+  uuidStandPasar: String
+  tglPenetapan: String
+  masaBerlaku: String
+  berlakuSampai: String
+  keterangan: String
+  biaya: Int
+  Pedagang: Pedagang
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type PedagangPenetapanConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PedagangPenetapanEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type PedagangPenetapanEdge {
+  """The item at the end of the edge"""
+  node: PedagangPenetapan
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Query {
+  viewer: Viewer
+}
+
+type StandPasar implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idStandPasar: Int
+  idBlok: Int
+  uuidBlok: String
+  Blok: Blok
+  jenisStand: String
+  uuidJenisStand: String
+  jenisStandDetail: JenisStand
+  nomor: String
+  panjang: Float
+  lebar: Float
+  keterangan: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+type standPasarByPenetapanPedagang implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idStandPasar: Int
+  idBlok: Int
+  uuidBlok: String
+  Blok: Blok
+  jenisStand: String
+  uuidJenisStand: String
+  luas: Float
+  potensiPerbup: Int
+  nomor: String
+  panjang: Float
+  lebar: Float
+  keterangan: String
+  PedagangPenetapan: PedagangPenetapan
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type StandPasarByPenetapanPedagangConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [StandPasarByPenetapanPedagangEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type StandPasarByPenetapanPedagangEdge {
+  """The item at the end of the edge"""
+  node: standPasarByPenetapanPedagang
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""A connection to a list of items."""
+type StandPasarConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [StandPasarEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type StandPasarEdge {
+  """The item at the end of the edge"""
+  node: StandPasar
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type TipePasar implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idTipePasar: String
+  keterangan: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type TipePasarConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TipePasarEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type TipePasarEdge {
+  """The item at the end of the edge"""
+  node: TipePasar
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Viewer {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  user: Auth
+  tipePasars(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): TipePasarConnection
+  tipePasar(id: String): TipePasar
+  kelasPasars(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): KelasPasarConnection
+  kelasPasar(id: String): KelasPasar
+  pasars(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): PasarConnection
+  pasar(id: String): Pasar
+  bloks(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): BlokConnection
+  blok(id: String): Blok
+  jenisStands(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): JenisStandConnection
+  jenisStand(id: String): JenisStand
+  standPasars(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): StandPasarConnection
+  standPasar(id: String): StandPasar
+  auths(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): AuthConnection
+  auth(id: String): Auth
+  viewStandPasars(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): ViewStandPasarConnection
+  viewStandPasar(id: String): ViewStandPasar
+  pedagangs(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): PedagangConnection
+  pedagang(id: String): Pedagang
+  pedagangPenetapans(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): PedagangPenetapanConnection
+  pedagangPenetapan(id: String): PedagangPenetapan
+  standPasarByPenetapanPedagang(after: String, first: Int = 10, before: String, last: Int, sorts: [JSONObject], filters: [JSONObject], search: String): StandPasarByPenetapanPedagangConnection
+}
+
+type ViewStandPasar implements Node {
+  """The ID of an object"""
+  id: ID!
+  plainId: String
+  idStandPasar: Int
+  idBlok: Int
+  uuidBlok: String
+  jenisStand: String
+  uuidJenisStand: String
+  nomor: String
+  panjang: Float
+  lebar: Float
+  keterangan: String
+  namaBlok: String
+  idPasar: Int
+  idKelasPasar: Int
+  uuidKelasPasar: String
+  idTipePasar: Int
+  uuidTipePasar: String
+  namaPasar: String
+  pengelola: String
+  jenisPasar: String
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  uuidCreatedBy: String
+  uuidUpdatedBy: String
+  uuidDeletedBy: String
+}
+
+"""A connection to a list of items."""
+type ViewStandPasarConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ViewStandPasarEdge]
+
+  """
+  A count of the total number of objects in this connection, ignoring pagination.
+                      This allows a client to fetch the first five objects by passing "5" as the
+                      argument to "first", then fetch the total count so it could display "5 of 83",
+                      for example.
+  """
+  totalCount: Int
+}
+
+"""An edge in a connection."""
+type ViewStandPasarEdge {
+  """The item at the end of the edge"""
+  node: ViewStandPasar
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}

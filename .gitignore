@@ -6,8 +6,6 @@ __generated__
 package-lock.json
 yarn.lock
 yarn-error.log
-schema.graphql
-schema.json
 coverage/
 .webpack
 .serverless
